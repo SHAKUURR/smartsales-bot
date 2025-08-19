@@ -8,6 +8,11 @@ bot.start((ctx) => ctx.reply("👋 Welcome to Smart Sales Tracker!"));
 bot.command("addsale", (ctx) => ctx.reply("Please enter sale details..."));
 bot.command("sales_today", (ctx) => ctx.reply("Fetching today's sales..."));
 
+// Respond to normal messages
+bot.on("text", (ctx) => {
+	ctx.reply(`You said: ${ctx.message.text}`);
+});
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 	if (req.method === "POST") {
 		try {
